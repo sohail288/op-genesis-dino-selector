@@ -64,6 +64,7 @@
    </div>
 
   <script>
+    console.log('hi');
     var dinoData;
     var stats = {selected:0};
     var siteObj = {};
@@ -211,14 +212,14 @@
     // main
     var fs = require('fs');
     var path = require('path');
-    var joiner = require('../util').makeJoiner('', path.resolve('./app'))
+    var joiner = require('../util').makeJoiner('file:', __dirname)
+    console.log(joiner)
     var main = document.getElementById('main')
     var nunjucks = require('nunjucks');
     var {ipcRenderer:ipc, remote } = require('electron');
     var dialog = remote.dialog;
     nunjucks.configure('./app/templates', {autoEscape: true})
 
-    
     fs.readFile(joiner('dinos.json'), 'utf-8', (err, data) => {
       if (err) process.exit(0);
       dinoData = data = JSON.parse(data)
