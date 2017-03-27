@@ -9,10 +9,12 @@ console.log(resolve('app'), joiner('index.html'))
 let mainWindow;
 
 function createWindow() {
-    mainWindow = new BrowserWindow({width: 300, height: 500})  
+    mainWindow = new BrowserWindow({width: 300, height: 550, resizable: process.env.RESIZABLE == 1 ? true: false})  
     mainWindow.loadURL(joiner('index.html'))
 
-    mainWindow.webContents.openDevTools()
+    if (process.env.DEBUG == 1) {
+        mainWindow.webContents.openDevTools()
+    }
 
     mainWindow.on('close', () => {
         mainWindow = null;
