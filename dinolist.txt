@@ -1,0 +1,69 @@
+// JUDITH RIVER A
+
+Albertosaurus "Alberto"
+Alioramus "Alio"
+Ankylosaurus "Anky"
+Crichtonsaurus "Crich"
+Pachycephalosaurus "Pachy"
+Stygimoloch "Stygi"
+// JUDITH RIVER B
+Corythosaurus "Cory"
+Styracosaurus "Styrac"
+Tyrannosaurus "Trex" < male
+Tyrannosaurus "TrexF" < female
+// HELL CREEK A
+Acrocanthosaurus "Acro"
+Chasmosaurus "Chasmo"
+Parasaurolophus "Para"
+Torosaurus "Toro"
+
+// HELL CREEK B
+Edmontosaurus "Edmont"
+Maiasaura "Maias"
+Pachycephalosaurus "Pachy"
+Triceratops "Tricera"
+
+// MORRISON FORMATION A
+Ceratosaurus "Cerato"
+Compsognathus "Compy"
+Dryosaurus "Dryo"
+Irritator "Irritat"
+Rajasaurus "Raja"
+Stegosaurus "Steg"
+Thescelosaurus "Thes"
+Wuerhosaurus "Wuer"
+
+// MORRISON B
+Apatosaurus "Apato"
+Brachiosaurus "Brach"
+Camarasaurus "Camara"
+Dilophosaurus "Dilopho"
+Diplodocus "Diplo"
+Guanlong "Guanlong"
+Supersaurus "Super"
+
+// CHENINI
+Baryonyx "Bary"
+Carcharodontosaurus "Carcha"
+Giganotosaurus "Giga"
+Iguanodon "Iguan"
+Ouranosaurus "Ourano"
+Spinosaurus "Spino"
+Tenontosaurus "Tenon"
+
+// TENDEGARU BEDS
+Allosaurus "Allo"
+Brachiosaurus "Brach"
+Indominus "Irex"
+Kentrosaurus "Kentro"
+Panoplosaurus "Panop"
+Tuojiangosaurus "Tuoj"
+Yangchuanosaurus "Yangchu"
+
+// FLAMING CLIFFS
+Bambiraptor "Bambi"
+Deinonychus "Dein"
+Gallimimus "Galli"
+Homalocephale "Homalo"
+Ornithomimus "Ornit"
+Velociraptor "Raptor"

@@ -1,0 +1,231 @@
+ <!DOCTYPE html>  
+ <html>  
+ <head>  
+   <meta charset="utf-8">
+   <title>Dino Selector</title>
+
+<style>
+  #main {
+    display: flex;
+    flex-flow: row nowrap;
+    justify-content: center;
+    align-content: center;
+    align-items: top;
+  }
+
+  #dino-selector {
+    height: 400px;
+    overflow-y: scroll;
+  }
+
+  #stats-selected {
+    height: 20
+  }
+  
+  #sidebar {
+    flex-direction: column;
+  }
+
+  h1 {
+    text-align: center;
+  }
+
+  #selected-directory {
+    background: grey;
+  }
+
+  #indicator {
+    background: lightgreen;
+  }
+</style>
+
+ </head>  
+ <body>  
+   <h1>Dino Selector</h1>  
+   <div id="indicator">
+   </div>
+
+   <p>Where is the data directory? 
+    <button id="directory-selector-button"> Select Directory</button>
+    <span id="selected-directory">Directory not selected...</span> 
+   </p>
+
+   <div id='main'>
+     <div id='dino-selector'></div>
+     <div id="sidebar">
+       <div id='stats'>
+        Selected: <span id="stats-selected"></span> 
+       </div>
+       <div id='buttons'>
+        <button id='save-button'>save</button> 
+        <button id='cancel-button'>cancel</button>
+       </div>
+     </div>
+   </div>
+
+  <script>
+    var dinoData;
+    var stats = {selected:0};
+    var siteObj = {};
+    var dataDirectory;
+  </script>
+
+  <script>
+    // functions for dom manipulation
+    function createSelector(parent, data) {
+      var dinoSelector = document.querySelector('#dino-selector')
+      Object.keys(data).sort().forEach((d, i, a) => {
+        var grouping = document.createElement('p');
+        var inp = document.createElement('input');
+        var label = document.createElement('label');
+        label.setAttribute('for', d);
+        label.textContent = data[d].dino_name;
+        inp.type = 'checkbox';
+        inp.value = d;
+        inp.id = d;
+        inp.classList.add('dino-selector-checkbox')
+        inp.addEventListener('change', function(evt) {
+          document.getElementById('indicator').style.display = 'none';
+          var selectedStats = document.querySelector('#stats-selected');
+          if (evt.target.checked) {
+            stats.selected += 1; 
+          } else {
+            stats.selected -= 1;
+          }
+          selectedStats.textContent = stats.selected;
+        })
+        grouping.appendChild(inp);
+        grouping.appendChild(label);
+        dinoSelector.appendChild(grouping);
+      })
+    }
+    
+    function initStats() {
+      var selectedStats = document.querySelector('#stats-selected');
+      selectedStats.textContent = stats.selected;
+    }
+
+    // set the data directory TODO: and get currently selected dinos if any
+    function selectDirectory() {
+      dialog.showOpenDialog({properties: ['openDirectory']}, function(directories) {
+        if (!directories) return;
+        if (directories.length && fs.existsSync(directories[0])) {
+          dataDirectory = directories[0];
+          document.getElementById('selected-directory').textContent = directories[0];
+        } else {
+          document.getElementById('selected-directory').textContent = 'This directory is not accessible...';
+        }
+      })
+    }
+
+    function initButtons() {
+      document.getElementById("save-button").addEventListener('click', generateFiles);
+      document.getElementById("cancel-button").addEventListener('click', cancel);
+      document.getElementById("directory-selector-button").addEventListener('click', selectDirectory);
+    }
+
+    function dinoSites(selectedDinos, dinoData) {
+      var siteObject = {};
+      var sites;
+      selectedDinos.forEach((d,i,a) => {
+        sites = dinoData[d].dig_sites;
+        sites.forEach((sitename) => {
+          var site = sitenameToKey(sitename)
+          if (siteObject[site]) {
+            siteObject[site].push(d);
+          } else {
+            siteObject[site] = [d];
+          }
+        })
+      })
+      return siteObject;
+    }
+
+    function generateFiles(evt) {
+      if (!dataDirectory) {
+        console.log("need to select data directory");
+        return;
+      }
+      var selected = [].slice.call(document.querySelectorAll('.dino-selector-checkbox:checked'))
+        .map((elem) => elem.id);
+
+      var dinoSitesObj = dinoSites(selected, dinoData);
+      fillMissingDinos(dinoSitesObj, dinoData);
+      var dinoList = nunjucks.render('DinoList.ini.njk', {dinoList:selected})
+      var fslHnt = nunjucks.render('FslHunt.ini.njk', dinoSitesObj)
+
+      fs.writeFile(path.join(dataDirectory, 'FslHunt.ini'), fslHnt, function(err) {
+        if (err) throw err;
+        fs.writeFile(path.join(dataDirectory, 'DinoList.ini'), dinoList, function(err) {
+          if (err) throw err;
+          var indicator = document.getElementById('indicator')
+          indicator.textContent = "success!";
+          indicator.style.display = "block";
+        })
+      })
+
+    }
+
+    // given SOMETHING SOMETHING, returns somethingSomethingDinos
+    function sitenameToKey(sitename) {
+      return sitename.split(" ").reduce((acc, elem, i) => {
+        if (i == 0) {
+          return acc + elem.toLowerCase();
+        } else {
+          return acc + elem[0].toUpperCase() + elem.slice(1).toLowerCase()
+        }
+      }, '') + "Dinos";
+    }
+
+    function cancel(evt) {
+      console.log('quitting');
+      ipc.send('close-main-window');
+    }
+
+    /**
+    * The previous selected are stored in the configuration.json file
+    * read that file and then automatically "check" those
+    **/
+    function getPreviousSelected() {
+
+    }
+
+    /**
+    * initializes site object, since we do not know if there is a set number of sites
+    * all dinos must be checked
+    */
+    function fillMissingDinos(siteObj, dinoData) {
+      Object.keys(dinoData).forEach((d) => {
+        var sites = dinoData[d].dig_sites; 
+        sites.forEach((site) => {
+          var key = sitenameToKey(site);
+          if (!siteObj[key]) {
+            siteObj[key] = [];
+          }
+        })
+      })
+    }
+
+  </script>
+  <script>
+    // main
+    var fs = require('fs');
+    var path = require('path');
+    var joiner = require('../util').makeJoiner('', path.resolve('./app'))
+    var main = document.getElementById('main')
+    var nunjucks = require('nunjucks');
+    var {ipcRenderer:ipc, remote } = require('electron');
+    var dialog = remote.dialog;
+    nunjucks.configure('./app/templates', {autoEscape: true})
+
+    
+    fs.readFile(joiner('dinos.json'), 'utf-8', (err, data) => {
+      if (err) process.exit(0);
+      dinoData = data = JSON.parse(data)
+      createSelector(main, data);
+      initStats();
+      initButtons();
+    })
+  </script>
+ </body>  
+ </html>  

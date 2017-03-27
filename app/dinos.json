@@ -1,0 +1,310 @@
+{
+ "alberto": {
+  "dino_name": "Albertosaurus",
+  "dig_sites": [
+   "JUDITH RIVER A"
+  ]
+ },
+ "alio": {
+  "dino_name": "Alioramus",
+  "dig_sites": [
+   "JUDITH RIVER A"
+  ]
+ },
+ "anky": {
+  "dino_name": "Ankylosaurus",
+  "dig_sites": [
+   "JUDITH RIVER A"
+  ]
+ },
+ "crich": {
+  "dino_name": "Crichtonsaurus",
+  "dig_sites": [
+   "JUDITH RIVER A"
+  ]
+ },
+ "pachy": {
+  "dino_name": "Pachycephalosaurus",
+  "dig_sites": [
+   "JUDITH RIVER A",
+   "HELL CREEK B"
+  ]
+ },
+ "stygi": {
+  "dino_name": "Stygimoloch",
+  "dig_sites": [
+   "JUDITH RIVER A"
+  ]
+ },
+ "cory": {
+  "dino_name": "Corythosaurus",
+  "dig_sites": [
+   "JUDITH RIVER B"
+  ]
+ },
+ "styrac": {
+  "dino_name": "Styracosaurus",
+  "dig_sites": [
+   "JUDITH RIVER B"
+  ]
+ },
+ "trex": {
+  "dino_name": "Tyrannosaurus_male",
+  "dig_sites": [
+   "JUDITH RIVER B"
+  ]
+ },
+ "trexf": {
+  "dino_name": "Tyrannosaurus_female",
+  "dig_sites": [
+   "JUDITH RIVER B"
+  ]
+ },
+ "acro": {
+  "dino_name": "Acrocanthosaurus",
+  "dig_sites": [
+   "HELL CREEK A"
+  ]
+ },
+ "chasmo": {
+  "dino_name": "Chasmosaurus",
+  "dig_sites": [
+   "HELL CREEK A"
+  ]
+ },
+ "para": {
+  "dino_name": "Parasaurolophus",
+  "dig_sites": [
+   "HELL CREEK A"
+  ]
+ },
+ "toro": {
+  "dino_name": "Torosaurus",
+  "dig_sites": [
+   "HELL CREEK A"
+  ]
+ },
+ "edmont": {
+  "dino_name": "Edmontosaurus",
+  "dig_sites": [
+   "HELL CREEK B"
+  ]
+ },
+ "maias": {
+  "dino_name": "Maiasaura",
+  "dig_sites": [
+   "HELL CREEK B"
+  ]
+ },
+ "tricera": {
+  "dino_name": "Triceratops",
+  "dig_sites": [
+   "HELL CREEK B"
+  ]
+ },
+ "cerato": {
+  "dino_name": "Ceratosaurus",
+  "dig_sites": [
+   "MORRISON FORMATION A"
+  ]
+ },
+ "compy": {
+  "dino_name": "Compsognathus",
+  "dig_sites": [
+   "MORRISON FORMATION A"
+  ]
+ },
+ "dryo": {
+  "dino_name": "Dryosaurus",
+  "dig_sites": [
+   "MORRISON FORMATION A"
+  ]
+ },
+ "irritat": {
+  "dino_name": "Irritator",
+  "dig_sites": [
+   "MORRISON FORMATION A"
+  ]
+ },
+ "raja": {
+  "dino_name": "Rajasaurus",
+  "dig_sites": [
+   "MORRISON FORMATION A"
+  ]
+ },
+ "steg": {
+  "dino_name": "Stegosaurus",
+  "dig_sites": [
+   "MORRISON FORMATION A"
+  ]
+ },
+ "thes": {
+  "dino_name": "Thescelosaurus",
+  "dig_sites": [
+   "MORRISON FORMATION A"
+  ]
+ },
+ "wuer": {
+  "dino_name": "Wuerhosaurus",
+  "dig_sites": [
+   "MORRISON FORMATION A"
+  ]
+ },
+ "apato": {
+  "dino_name": "Apatosaurus",
+  "dig_sites": [
+   "MORRISON B"
+  ]
+ },
+ "brach": {
+  "dino_name": "Brachiosaurus",
+  "dig_sites": [
+   "MORRISON B",
+   "TENDEGARU BEDS"
+  ]
+ },
+ "camara": {
+  "dino_name": "Camarasaurus",
+  "dig_sites": [
+   "MORRISON B"
+  ]
+ },
+ "dilopho": {
+  "dino_name": "Dilophosaurus",
+  "dig_sites": [
+   "MORRISON B"
+  ]
+ },
+ "diplo": {
+  "dino_name": "Diplodocus",
+  "dig_sites": [
+   "MORRISON B"
+  ]
+ },
+ "guanlong": {
+  "dino_name": "Guanlong",
+  "dig_sites": [
+   "MORRISON B"
+  ]
+ },
+ "super": {
+  "dino_name": "Supersaurus",
+  "dig_sites": [
+   "MORRISON B"
+  ]
+ },
+ "bary": {
+  "dino_name": "Baryonyx",
+  "dig_sites": [
+   "CHENINI"
+  ]
+ },
+ "carcha": {
+  "dino_name": "Carcharodontosaurus",
+  "dig_sites": [
+   "CHENINI"
+  ]
+ },
+ "giga": {
+  "dino_name": "Giganotosaurus",
+  "dig_sites": [
+   "CHENINI"
+  ]
+ },
+ "iguan": {
+  "dino_name": "Iguanodon",
+  "dig_sites": [
+   "CHENINI"
+  ]
+ },
+ "ourano": {
+  "dino_name": "Ouranosaurus",
+  "dig_sites": [
+   "CHENINI"
+  ]
+ },
+ "spino": {
+  "dino_name": "Spinosaurus",
+  "dig_sites": [
+   "CHENINI"
+  ]
+ },
+ "tenon": {
+  "dino_name": "Tenontosaurus",
+  "dig_sites": [
+   "CHENINI"
+  ]
+ },
+ "allo": {
+  "dino_name": "Allosaurus",
+  "dig_sites": [
+   "TENDEGARU BEDS"
+  ]
+ },
+ "irex": {
+  "dino_name": "Indominus",
+  "dig_sites": [
+   "TENDEGARU BEDS"
+  ]
+ },
+ "kentro": {
+  "dino_name": "Kentrosaurus",
+  "dig_sites": [
+   "TENDEGARU BEDS"
+  ]
+ },
+ "panop": {
+  "dino_name": "Panoplosaurus",
+  "dig_sites": [
+   "TENDEGARU BEDS"
+  ]
+ },
+ "tuoj": {
+  "dino_name": "Tuojiangosaurus",
+  "dig_sites": [
+   "TENDEGARU BEDS"
+  ]
+ },
+ "yangchu": {
+  "dino_name": "Yangchuanosaurus",
+  "dig_sites": [
+   "TENDEGARU BEDS"
+  ]
+ },
+ "bambi": {
+  "dino_name": "Bambiraptor",
+  "dig_sites": [
+   "FLAMING CLIFFS"
+  ]
+ },
+ "dein": {
+  "dino_name": "Deinonychus",
+  "dig_sites": [
+   "FLAMING CLIFFS"
+  ]
+ },
+ "galli": {
+  "dino_name": "Gallimimus",
+  "dig_sites": [
+   "FLAMING CLIFFS"
+  ]
+ },
+ "homalo": {
+  "dino_name": "Homalocephale",
+  "dig_sites": [
+   "FLAMING CLIFFS"
+  ]
+ },
+ "ornit": {
+  "dino_name": "Ornithomimus",
+  "dig_sites": [
+   "FLAMING CLIFFS"
+  ]
+ },
+ "raptor": {
+  "dino_name": "Velociraptor",
+  "dig_sites": [
+   "FLAMING CLIFFS"
+  ]
+ }
+}

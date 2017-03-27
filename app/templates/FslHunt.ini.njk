@@ -1,0 +1,477 @@
+/*----------------------------------------------------------------------------------------------------------------------------------------
+|  "FSLHUNT.INI"
++------------------------------------------------------------------------------------------------------------------------------------
+* \file
+* \author      Allen Weeks (aweeks@bluetongue.com)
+* \date        Thursday, 14 March 2002
+* \brief       Data file describing the fossil hunt game
+*-------------------------------------------------------------------------------------------------------------------------------------*/
+
+// Sku specific data
+Data
+{
+	all
+	{
+		MaxDinos = 15;				// Number of dinos in game -- not used in current design
+		BaseCRPLevel = 2;			// Base CRP for auxiliary dinosaurs -- not used in current design
+		BaseDigTime = 240.0;		// Base dig time
+		AlwaysHave5Star = 0;		// DON'T always include 5 star dinos every game
+	}
+}
+
+// DigSite
+//		texture		= name of texture to use for brown splotch (from GUIBuilder)
+//		teams		= max teams that can be allocated to the site
+//		digtime		= time (in seconds) it takes one team to complete one dig
+
+
+// MORRISON FORMATION A ---------------------------------------------------------------
+
+HuntingGround[MorrisonA]
+{
+	title		= $FossilHunt_MorrisonA_Title;
+	period		= Jurassic;
+	location	= NorthAmerica;
+	matlib		= "dinos_morrison_a";
+
+	reqdinos   = { {{ morrisonFormationADinos | join(",") }} };
+	linkedtoset = 1;	
+
+	cost		= 0;	// This site is free!
+	gold		= 12;
+
+	position	= {100, 120};
+	texture		= "FslHunt_fossil6";
+
+	DigSite[river1]
+	{
+		type			= plains;
+		texture			= "FslHunt_DigSite_1";
+		position		= {58, 44};
+		teams			= 2;
+		digtime			= 1.0;
+	}
+	DigSite[river2]
+	{
+		type			= plains;
+		texture			= "FslHunt_DigSite_2";
+		position		= {46, 114};
+		teams			= 3;
+		digtime			= 1.0;
+	}
+	DigSite[plains]
+	{
+		type			= mountain;
+		texture			= "FslHunt_DigSite_3";
+		position		= {82, 212};
+		teams			= 4;
+		digtime			= 1.0;
+	}
+}
+
+
+// JUDITH RIVER A ---------------------------------------------------------------
+
+HuntingGround[JudithRiverA]
+{
+	title		= $FossilHunt_JudithRiverA_Title;
+	period		= Cretaceous;
+	location	= NorthAmerica;
+	matlib		= "dinos_judithriver_a";
+
+	reqdinos	= { {{ judithRiverADinos | join(",") }} };
+	linkedtoset = 1;	// Linked to an unlocking set
+
+	cost		= 0;
+	gold		= 10;
+
+	position	= {100, 79};
+	texture		= "FslHunt_fossil1";
+
+	DigSite[river1]
+	{
+		type			= plains;
+		texture			= "FslHunt_DigSite_4";
+		position		= {51, 74};
+		teams			= 2;
+		digtime			= 1.0;
+	}
+	DigSite[river2]
+	{
+		type			= river;
+		texture			= "FslHunt_DigSite_5";
+		position		= {66, 170};
+		teams			= 2;
+		digtime			= 1.0;
+	}
+	DigSite[plains]
+	{
+		type			= mountain;
+		texture			= "FslHunt_DigSite_6";
+		position		= {113, 205};
+		teams			= 4;
+		digtime			= 1.0;
+	}
+}
+
+// HELL CREEK A ---------------------------------------------------------------
+
+HuntingGround[HellCreekA]
+{
+	title		= $FossilHunt_HellCreekA_Title;
+	period		= Cretaceous;
+	location	= NorthAmerica;
+	matlib		= "dinos_hellcreek_a";
+
+	reqdinos	= { {{ hellCreekADinos | join(",") }} };
+	linkedtoset = 1;	// Linked to an unlocking set
+
+	cost		= 0;
+	gold		= 10;
+
+	position	= {100, 100};
+	texture		= "FslHunt_fossil4";
+
+	DigSite[river1]
+	{
+		type			= mountain;
+		texture			= "FslHunt_DigSite_4";
+		position		= {114, 167};
+		teams			= 2;
+		digtime			= 1.0;
+	}
+	DigSite[river2]
+	{
+		type			= plains;
+		texture			= "FslHunt_DigSite_5";
+		position		= {62, 53};
+		teams			= 2;
+		digtime			= 1.0;
+	}
+	DigSite[plains]
+	{
+		type			= mountain;
+		texture			= "FslHunt_DigSite_6";
+		position		= {45, 204};
+		teams			= 4;
+		digtime			= 1.0;
+	}
+
+}
+
+// MORRISON B ---------------------------------------------------------------
+
+HuntingGround[MorrisonB]
+{
+	title		= $FossilHunt_MorrisonB_Title;
+	period		= Jurassic;
+	location	= NorthAmerica;
+	matlib		= "dinos_morrison_b";
+
+	reqdinos	= { {{ morrisonBDinos | join(",") }} };
+	linkedtoset = 1;	// Linked to an unlocking set
+
+	cost		= 0;
+	gold		= 10;
+
+	position	= {125, 120};
+	texture		= "FslHunt_fossil6";
+
+	DigSite[river1]
+	{
+		type			= mountain;
+		texture			= "FslHunt_DigSite_1";
+		position		= {206, 86};
+		teams			= 2;
+		digtime			= 1.0;
+	}
+	DigSite[river2]
+	{
+		type			= plains;
+		texture			= "FslHunt_DigSite_2";
+		position		= {143, 130};
+		teams			= 3;
+		digtime			= 1.0;
+	}
+	DigSite[plains]
+	{
+		type			= plains;
+		texture			= "FslHunt_DigSite_3";
+		position		= {168, 200};
+		teams			= 4;
+		digtime			= 1.0;
+	}
+}
+
+// JUDITH RIVER B ---------------------------------------------------------------
+
+HuntingGround[JudithRiverB]
+{
+	title		= $FossilHunt_JudithRiverB_Title;
+	period		= Cretaceous;
+	location	= NorthAmerica;
+	matlib		= "dinos_judithriver_b";
+
+	reqdinos	= { {{ judithRiverBDinos | join(",") }} };
+	linkedtoset = 1;	// Linked to an unlocking set
+
+	cost		= 0;
+	gold		= 10;
+
+	position	= {125, 79};
+	texture		= "FslHunt_fossil1";
+
+	DigSite[river1]
+	{
+		type			= river;
+		texture			= "FslHunt_DigSite_4";
+		position		= {187, 64};
+		teams			= 2;
+		digtime			= 1.0;
+	}
+	DigSite[river2]
+	{
+		type			= plains;
+		texture			= "FslHunt_DigSite_5";
+		position		= {157, 148};
+		teams			= 2;
+		digtime			= 1.0;
+	}
+	DigSite[plains]
+	{
+		type			= plains;
+		texture			= "FslHunt_DigSite_6";
+		position		= {199, 206};
+		teams			= 4;
+		digtime			= 1.0;
+	}
+
+}
+
+
+// HELL CREEK B ---------------------------------------------------------------
+
+HuntingGround[HellCreekB]
+{
+	title		= $FossilHunt_HellCreekB_Title;
+	period		= Cretaceous;
+	location	= NorthAmerica;
+	matlib		= "dinos_hellcreek_b";
+
+	reqdinos	= { {{ hellCreekBDinos | join(",") }} };
+	linkedtoset = 1;	// Linked to an unlocking set
+
+	cost		= 0;
+	gold		= 10;
+
+	position	= {125, 100};
+	texture		= "FslHunt_fossil4";
+
+	DigSite[river1]
+	{
+		type			= mountain;
+		texture			= "FslHunt_DigSite_4";
+		position		= {171, 39};
+		teams			= 2;
+		digtime			= 1.0;
+	}
+	DigSite[river2]
+	{
+		type			= plains;
+		texture			= "FslHunt_DigSite_5";
+		position		= {128, 147};
+		teams			= 2;
+		digtime			= 1.0;
+	}
+	DigSite[plains]
+	{
+		type			= mountain;
+		texture			= "FslHunt_DigSite_6";
+		position		= {188, 201};
+		teams			= 4;
+		digtime			= 1.0;
+	}
+}
+
+
+
+// TENDEGARU BEDS ---------------------------------------------------------------
+
+HuntingGround[TendaguruBeds]
+{
+	title		= $FossilHunt_TendaguruBeds_Title;
+	period		= Jurassic;
+	location	= Africa;
+	matlib		= "dinos_tendaguru";
+
+	reqdinos	= { {{ tendegaruBedsDinos | join(",") }} };
+	linkedtoset = 1;	// Linked to an unlocking set
+
+	cost		= 0;
+	gold		= 8;
+
+//	position	= {124, 128};
+	position	= {296, 162};
+	texture		= "FslHunt_fossil2";
+
+	DigSite[river1]
+	{
+		type			= plains;
+		texture			= "FslHunt_DigSite_1";
+		position		= {168, 53};
+		title			= $FossilHunt_DigSite_River;
+		teams			= 2;
+		digtime			= 1.0;
+	}
+	DigSite[river2]
+	{
+		type			= plains;
+		texture			= "FslHunt_DigSite_2";
+		position		= {213, 149};
+		title			= $FossilHunt_DigSite_River;
+		teams			= 3;
+		digtime			= 1.0;
+	}
+	DigSite[plains]
+	{
+		type			= mountain;
+		texture			= "FslHunt_DigSite_3";
+		position		= {67, 211};
+		title			= $FossilHunt_DigSite_Plains;
+		teams			= 4;
+		digtime			= 1.0;
+	}
+}
+
+
+// CHENINI ---------------------------------------------------------------
+
+HuntingGround[Chenini]
+{
+	title		= $FossilHunt_Chenini_Title;
+	period		= Cretaceous;
+	location	= Africa;
+	matlib		= "dinos_chenini";
+
+	reqdinos	= { {{ cheniniDinos | join(",") }} };
+	linkedtoset = 1;	// Linked to an unlocking set
+
+	cost		= 0;
+	gold		= 8;
+
+//	position	= {156, 165};
+	position	= {269, 125};
+	texture		= "FslHunt_fossil5";
+
+	DigSite[river1]
+	{
+		type			= river;
+		texture			= "FslHunt_DigSite_1";
+		position		= {107, 180};
+		title			= $FossilHunt_DigSite_River;
+		teams			= 2;
+		digtime			= 1.0;
+	}
+	DigSite[river2]
+	{
+		type			= plains;
+		texture			= "FslHunt_DigSite_2";
+		position		= {204, 112};
+		title			= $FossilHunt_DigSite_River;
+		teams			= 3;
+		digtime			= 1.0;
+	}
+	DigSite[plains]
+	{
+		type			= mountain;
+		texture			= "FslHunt_DigSite_3";
+		position		= {56, 166};
+		title			= $FossilHunt_DigSite_Plains;
+		teams			= 4;
+		digtime			= 1.0;
+	}
+}
+
+
+// FLAMING CLIFFS ---------------------------------------------------------------
+
+HuntingGround[FlamingCliffs]
+{
+	title		= $FossilHunt_FlamingCliffs_Title;
+	period		= Cretaceous;
+	location	= Asia;
+	matlib		= "dinos_flamingcliffs";
+
+	reqdinos	= { {{ flamingCliffsDinos | join(",") }} };
+	linkedtoset = 1;	// Linked to an unlocking set
+	
+	cost		= 0;
+	gold		= 12;
+
+//	position	= {226, 80};
+	position	= {397, 83};
+	texture		= "FslHunt_fossil3";
+
+	DigSite[river1]
+	{
+		type			= river;
+		texture			= "FslHunt_DigSite_1";
+		position		= {211, 189};
+		title			= $FossilHunt_DigSite_River;
+		teams			= 2;
+		digtime			= 1.0;
+	}
+	DigSite[river2]
+	{
+		type			= mountain;
+		texture			= "FslHunt_DigSite_2";
+		position		= {199, 89};
+		title			= $FossilHunt_DigSite_River;
+		teams			= 3;
+		digtime			= 1.0;
+	}
+	DigSite[plains]
+	{
+		type			= mountain;
+		texture			= "FslHunt_DigSite_3";
+		position		= {89, 127};
+		title			= $FossilHunt_DigSite_Plains;
+		teams			= 4;
+		digtime			= 1.0;
+	}
+}
+
+
+// HUNTING SETS ---------------------------------------------------------------
+
+// Only one set, with a certain number of sites available to unlock out of it
+
+HuntingGroundSet[First]
+{
+	grounds = { MorrisonA, HellCreekA , JudithRiverA, MorrisonB, HellCreekB, JudithRiverB, HellCreekB, TendaguruBeds, Chenini, FlamingCliffs };
+	firstchoices[0] = Chenini;
+	firstchoices[1] = JudithRiverB;
+	firstchoices[2] = HellCreekB;
+
+#ifdef TOSHI_SKU_PS2
+	maxchosen = 3;
+	starrating[0] = 0;
+	starrating[1] = 1;
+	starrating[2] = 3;	
+	//starrating[3] = 3;	// Unlock last two at 3 stars
+#else	// Windows and XBox builds
+	maxchosen = 9;
+	starrating[0] = 0;
+	starrating[1] = 1;
+	starrating[2] = 2;
+	starrating[3] = 3;
+	starrating[4] = 4;
+	starrating[5] = 4;
+	starrating[6] = 5;
+	starrating[7] = 5;
+	starrating[8] = 5;
+	starrating[9] = 5;
+#endif
+
+}
+
