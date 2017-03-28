@@ -1,17 +1,17 @@
 'use strict'
-var {BrowserWindow, app, ipcMain:ipc} = require('electron');
-var {resolve} = require('path');
-var {makeJoiner} = require('./util');
+var {BrowserWindow, app, ipcMain:ipc} = require('electron')
+var {resolve} = require('path')
+var {makeJoiner} = require('./util')
+var url = require('url')
 
-const joiner = makeJoiner('file://', resolve('app'));
-console.log(resolve('app'), joiner('index.html'))
+const joiner = makeJoiner('file:', __dirname);
 
 let mainWindow;
 
 function createWindow() {
-    mainWindow = new BrowserWindow({width: 300, height: 550, resizable: process.env.RESIZABLE == 1 ? true: false})  
-    mainWindow.loadURL(joiner('index.html'))
-
+    mainWindow = new BrowserWindow({width: 300, height: 550})
+    mainWindow.loadURL(joiner('/app/index.html'))
+    
     if (process.env.DEBUG == 1) {
         mainWindow.webContents.openDevTools()
     }
