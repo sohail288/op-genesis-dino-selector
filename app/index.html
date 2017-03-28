@@ -4,48 +4,48 @@
    <meta charset="utf-8">
    <title>Dino Selector</title>
 
-<style>
-  #main {
-    display: flex;
-    flex-flow: row nowrap;
-    justify-content: center;
-    align-content: center;
-    align-items: top;
-  }
+  <style>
+    #main {
+      display: flex;
+      flex-flow: row nowrap;
+      justify-content: center;
+      align-content: center;
+      align-items: top;
+    }
 
-  #dino-selector {
-    height: 400px;
-    overflow-y: scroll;
-  }
+    #dino-selector {
+      height: 400px;
+      overflow-y: scroll;
+    }
 
-  #stats-selected {
-    height: 20
-  }
-  
-  #sidebar {
-    flex-direction: column;
-  }
+    #stats-selected {
+      height: 20
+    }
+    
+    #sidebar {
+      flex-direction: column;
+    }
 
-  h1 {
-    text-align: center;
-  }
+    h1 {
+      text-align: center;
+    }
 
-  #selected-directory {
-    background: grey;
-  }
+    #selected-directory {
+      background: grey;
+    }
 
-  #indicator {
-    background: lightgreen;
-  }
-</style>
+    #indicator {
+      background: lightgreen;
+    }
+  </style>
 
  </head>  
  <body>  
    <h1>Dino Selector</h1>  
-   <div id="indicator">
-   </div>
+   <div id="indicator"></div>
 
-   <p>Where is the data directory? 
+   <p>
+    Where is the data directory? 
     <button id="directory-selector-button"> Select Directory</button>
     <span id="selected-directory">Directory not selected...</span> 
    </p>
@@ -64,7 +64,6 @@
    </div>
 
   <script>
-    console.log('hi');
     var dinoData;
     var stats = {selected:0};
     var siteObj = {};
@@ -113,6 +112,9 @@
         if (directories.length && fs.existsSync(directories[0])) {
           dataDirectory = directories[0];
           document.getElementById('selected-directory').textContent = directories[0];
+          // see if there is an existing file for the FslHunt and DinoList
+          // open DinoList
+          // see the dinosaurs and check the checkboxes
         } else {
           document.getElementById('selected-directory').textContent = 'This directory is not accessible...';
         }
@@ -213,15 +215,20 @@
     var fs = require('fs');
     var path = require('path');
     var joiner = require('../util').makeJoiner('file:', __dirname)
-    console.log(joiner)
     var main = document.getElementById('main')
     var nunjucks = require('nunjucks');
     var {ipcRenderer:ipc, remote } = require('electron');
     var dialog = remote.dialog;
-    nunjucks.configure('./app/templates', {autoEscape: true})
+    nunjucks.configure(path.join(__dirname, 'templates'), {autoEscape: true})
 
-    fs.readFile(joiner('dinos.json'), 'utf-8', (err, data) => {
-      if (err) process.exit(0);
+    fs.readFile(path.join(__dirname, 'dinos.json'), 'utf-8', (err, data) => {
+      if (err) {
+        console.log("error", err);
+        setTimeout(() => {
+          ipc.send('close-main-window')
+        }, 3000)
+        return;
+      }
       dinoData = data = JSON.parse(data)
       createSelector(main, data);
       initStats();

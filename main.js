@@ -11,9 +11,10 @@ let mainWindow;
 function createWindow() {
     mainWindow = new BrowserWindow({width: 300, height: 550})
     mainWindow.loadURL(joiner('/app/index.html'))
-    console.log('loaded')
-
+    
+    if (process.env.DEBUG == 1) {
         mainWindow.webContents.openDevTools()
+    }
 
     mainWindow.on('close', () => {
         mainWindow = null;
