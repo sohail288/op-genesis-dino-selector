@@ -24,10 +24,11 @@ There is a release available in the releases section on github ([found here](htt
 There are a number of ways to make this project better. 
 
 possible features to implement:
-    * fill rest: select your dinos and randomly select remaining dinos
-    * preselect dinos already in `DinoList.ini` files in the chosen directory
-    * implement in a lighter weight gui toolkit (possibly tkinter or wxwidgets)
-    * limit the dinosaurs chosen automatically
-    * .... let me know
+
+* fill rest: select your dinos and randomly select remaining dinos
+* preselect dinos already in `DinoList.ini` files in the chosen directory
+* implement in a lighter weight gui toolkit (possibly tkinter or wxwidgets)
+* limit the dinosaurs chosen automatically
+* .... let me know
 
 Let me know if any of these is useful
