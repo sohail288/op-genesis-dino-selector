@@ -31,4 +31,8 @@ possible features to implement:
 * limit the dinosaurs chosen automatically
 * .... let me know
 
-Let me know if any of these is useful
+Let me know if any of these are useful
+
+
+screenshot (yes, yes, super basic):
+![screen shot main](https://github.com/sohail288/op-genesis-dino-selector/blob/master/docs/opgen_screen.jpg?raw=true)
